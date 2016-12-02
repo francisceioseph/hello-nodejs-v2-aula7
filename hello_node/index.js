@@ -23,15 +23,37 @@ app.get('/participantes', (req, res) => {
 });
 
 app.get('/eventos', (req, res) => {
-
+  eventosService.listarEventos()
+  .then(eventos => {
+    res.send(eventos);
+  })
+  .catch(error => {
+    res.send(error);
+  });
 });
 
 app.get('/participantes/:participante_id/eventos', (req, res) => {
+  let participante_id = req.params.participante_id;
 
+  participantesService.listarEventosDoParticipante(participante_id)
+  .then(eventos => {
+    res.send(eventos);
+  })
+  .catch(error => {
+    res.send(error);
+  });
 });
 
 app.get('/eventos/:evento_id/participantes', (req, res) => {
-  let 
+  let evento_id = req.params.evento_id;
+
+  eventosService.listarParticipantesDoEvento()
+  .then(participantes => {
+    res.send(participantes);
+  })
+  .catch(error => {
+    res.send(error);
+  });
 });
 
 app.post('/eventos/new', (req, res) => {

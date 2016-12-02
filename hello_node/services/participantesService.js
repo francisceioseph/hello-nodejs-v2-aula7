@@ -12,9 +12,10 @@ service.listarEventos = function() {
 };
 
 service.listarEventosDoParticipante = function(participante_id){
-  return knex('compromisso').select()
+  return knex('compromisso')
+  .select()
   .where({participante_id: participante_id})
-  .innerJoin('evento', 'evento_id', 'evento.evento_id');
+  .innerJoin('evento', 'compromisso.evento_id', 'evento.evento_id');
 };
 
 service.criarParticipante = function(participante) {
