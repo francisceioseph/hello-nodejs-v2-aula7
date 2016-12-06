@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index page</title>
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+
+  <body ng-app="eventosApp" ng-controller="mainCtrl as ctrl">
+    <h2>{{ctrl.name | uppercase}}</h2>
+    <button ng-click="ctrl.revert()">Reverse Name</button>
+  </body>
+</html>
